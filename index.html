@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="./CSS/main.css" />
+  </head>
+  <body>
+    <h1>To do list</h1>
+    <section class="toDoList">
+      <h2>liste des taches</h2>
+      <ul id="taskList"></ul>
+    </section>
+
+    <section class="toDoForm">
+      <h2>Ajouter une tache</h2>
+      <form action="" id="taskForm">
+        <input
+          type="text"
+          placeholder="Nom de la tache"
+          id="task_name"
+          required
+        />
+        <select name="" id="priority">
+          <option value="1">Faible</option>
+          <option value="2">Moyenne</option>
+          <option value="3">Elevée</option>
+        </select>
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+    <section>
+      <div id="notification"></div>
+      <button id="deleteAll">Supprimer toutes les taches</button>
+    </section>
+    <script src="./JS/main.js"></script>
+  </body>
+</html>

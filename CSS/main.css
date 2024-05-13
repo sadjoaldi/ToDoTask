@@ -1,0 +1,11 @@
+.heightPriority {
+  background: red;
+}
+
+.normalPriority {
+  background: green;
+}
+
+.lowPriority {
+  background: blue;
+}
