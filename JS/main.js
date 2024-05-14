@@ -1,4 +1,4 @@
-const tasks = [
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [
   {
     title: "Apprendre mon cours de JavaScript",
     priority: 1,
@@ -41,6 +41,14 @@ function displayTasks() {
 }
 displayTasks();
 
+// Fonction pour ajouter une tache
+function addTask(title, priority) {
+  tasks.push({ title, priority });
+  saveTasks();
+  displayTasks();
+}
+addTask();
+
 //Gestionnaire d'événements pour l'ajout de tâches
 taskForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -52,23 +60,29 @@ taskForm.addEventListener("submit", (e) => {
   }
 });
 
-// Fonction pour ajouter une tache
-function addTask(title, priority) {
-  tasks.push({ title, priority });
-  displayTasks();
-}
-addTask();
-
 // Fonction pour supprimer toutes les taches
 
 function deleteAllTasks() {
   const selectedTasks = taskList.querySelectorAll(
-    "input[type=checkbox]: checked"
+    "input[type=checkbox]:checked"
   );
   selectedTasks.forEach((checkbox) => {
     const index = parseInt(checkbox.dataset.index);
     tasks.splice(index, 1);
   });
+  showNotification();
+  saveTasks();
   displayTasks();
 }
 deleteTask.addEventListener("click", deleteAllTasks);
+
+// Fonction pour sauvegarder les taches
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  console.log(`Saved ${tasks.length} tasks.`);
+}
+
+// Fonction pour afficher une notification lorsqu'une ou plusieurs tâches ont été supprimées, affichage d'un message de notification à l'utilisateur du type "x tâches supprimées avec succès".
+function showNotification() {
+  notification.textcontent = `${tasks.length} tâches supprimées avec succès`;
+}

@@ -2,29 +2,138 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-h1,
+/* varibale css  */
+
+:root {
+  --main-bg-color: #f4f4f4;
+  --main-text-color: #333;
+  --main-border-color: #ccc;
+  --first-priority-color: blue;
+  --second-priority-color: green;
+  --third-priority-color: red;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1rem 0 1.7rem 0;
+}
+
 h2 {
-  text-align: center;
+  font-size: 2.7rem;
+  margin: 0 0 1.7rem 0;
+}
+
+.sectionsToDo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #taskList {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #taskList li {
   display: flex;
   align-items: center;
 }
-.heightPriority {
-  background: red;
+
+#taskList li label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.normalPriority {
-  background: green;
+#taskList li input[type="checkbox"] {
+  margin-right: 10px;
 }
 
-.lowPriority {
-  background: blue;
+.formTasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--main-border-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border: 1px solid var(--main-text-color);
+}
+
+#priority {
+  padding: 10px 20px;
+  margin: 10px 12px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+  transition: All 0.5s ease;
+}
+
+.priority-1 {
+  color: var(--first-priority-color);
+}
+
+.priority-2 {
+  color: var(--second-priority-color);
+}
+
+.priority-3 {
+  color: var(--third-priority-color);
+}
+
+#notification {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .sectionsToDo {
+    grid-template-columns: 1fr;
+  }
 }
